@@ -12,9 +12,9 @@ RUN cat ${TOMCAT_HOME}/webapps/default.s* > ${TOMCAT_HOME}/webapps/default.tar.g
 	cat ${TOMCAT_HOME}/webapps/workspace.s* > ${TOMCAT_HOME}/webapps/workspace.tar.gz && \
 	cat ${TOMCAT_HOME}/webapps/governor.s* > ${TOMCAT_HOME}/webapps/governor.tar.gz && \
 	rm ${TOMCAT_HOME}/webapps/*.s* && \
-	tar -xzvf ${TOMCAT_HOME}/webapps/default.tar.gz ${TOMCAT_HOME}/webapps/ && \
-	tar -xzvf ${TOMCAT_HOME}/webapps/workspace.tar.gz ${TOMCAT_HOME}/webapps/ && \
-	tar -xzvf ${TOMCAT_HOME}/webapps/governor.tar.gz ${TOMCAT_HOME}/webapps/ && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/default.tar.gz -C ${TOMCAT_HOME}/webapps/ && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/workspace.tar.gz -C ${TOMCAT_HOME}/webapps/ && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/governor.tar.gz -C ${TOMCAT_HOME}/webapps/ && \
 	rm ${TOMCAT_HOME}/webapps/*.gz 
 
 ADD run.sh /opt
