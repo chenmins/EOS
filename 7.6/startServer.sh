@@ -2,10 +2,10 @@
 
 export DIRNAME=`dirname $0`
 
-export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.9.x86_64"
+export JAVA_HOME="/usr/java/jdk1.7.0_80"
 
-export CATALINA_BASE="/u01/tomcat/eos/tomcat"
-export EXTERNAL_CONFIG_DIR="/u01/tomcat/eos/apps_config"
+export CATALINA_BASE="/opt/tomcat"
+export EXTERNAL_CONFIG_DIR="/opt/apps_config"
 
 export JAVAC_JAR="${JAVA_HOME}/lib/tools.jar"
 export RUNJAR="${CATALINA_BASE}/bin/bootstrap.jar:${CATALINA_BASE}/bin/tomcat-juli.jar"

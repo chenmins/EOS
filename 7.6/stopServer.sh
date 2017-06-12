@@ -18,9 +18,8 @@ while [ -h "$PRG" ] ; do
   fi
 done
 
-JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.9.x86_64"
-export JAVA_HOME  
-PRGDIR="/u01/tomcat/eos/tomcat/bin"
+export JAVA_HOME="/usr/java/jdk1.7.0_80"
+PRGDIR="/opt/tomcat/bin"
 EXECUTABLE=catalina.sh
 
 # Check that target executable exists
