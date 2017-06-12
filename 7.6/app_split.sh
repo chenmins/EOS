@@ -3,3 +3,6 @@ cd app
 split -b 10m default.war default.s
 split -b 10m workspace.war workspace.s
 split -b 10m governor.war governor.s
+rm default.war
+rm workspace.war
+rm governor.war
