@@ -8,9 +8,14 @@ ENV TOMCAT_HOME=/opt/tomcat \
 
 ADD ${JDBC_HOME}/*.jar ${TOMCAT_HOME}/lib/
 COPY ${APP_HOME}/* ${TOMCAT_HOME}/webapps/
-RUN cat ${TOMCAT_HOME}/webapps/default.s* > ${TOMCAT_HOME}/webapps/default.tar.gz
-RUN cat ${TOMCAT_HOME}/webapps/workspace.s* > ${TOMCAT_HOME}/webapps/workspace.tar.gz
-RUN cat ${TOMCAT_HOME}/webapps/governor.s* > ${TOMCAT_HOME}/webapps/governor.tar.gz
+RUN cat ${TOMCAT_HOME}/webapps/default.s* > ${TOMCAT_HOME}/webapps/default.tar.gz && \
+	cat ${TOMCAT_HOME}/webapps/workspace.s* > ${TOMCAT_HOME}/webapps/workspace.tar.gz && \
+	cat ${TOMCAT_HOME}/webapps/governor.s* > ${TOMCAT_HOME}/webapps/governor.tar.gz && \
+	rm ${TOMCAT_HOME}/webapps/*.s* && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/default.tar.gz ${TOMCAT_HOME}/webapps/ && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/workspace.tar.gz ${TOMCAT_HOME}/webapps/ && \
+	tar -xzvf ${TOMCAT_HOME}/webapps/governor.tar.gz ${TOMCAT_HOME}/webapps/ && \
+	rm ${TOMCAT_HOME}/webapps/*.gz 
 
 ADD run.sh /opt
 ADD startServer.sh /opt
