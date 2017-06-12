@@ -6,10 +6,11 @@ ENV TOMCAT_HOME=/opt/tomcat \
     JDBC_HOME=jdbc \
     APP_HOME=app
 
-ADD ${JDBC_HOME}/ojdbc14-10.2.0.2.0.jar ${TOMCAT_HOME}/lib/
-ADD ${APP_HOME}/governor.tar.gz ${TOMCAT_HOME}/webapps/
-ADD ${APP_HOME}/workspace.tar.gz ${TOMCAT_HOME}/webapps/
-ADD ${APP_HOME}/default.tar.gz ${TOMCAT_HOME}/webapps/
+ADD ${JDBC_HOME}/*.jar ${TOMCAT_HOME}/lib/
+ADD ${APP_HOME}/* ${TOMCAT_HOME}/webapps/
+RUN cat ${TOMCAT_HOME}/webapps/default.s* > ${TOMCAT_HOME}/webapps/default.tar.gz
+RUN cat ${TOMCAT_HOME}/webapps/workspace.s* > ${TOMCAT_HOME}/webapps/workspace.tar.gz
+RUN cat ${TOMCAT_HOME}/webapps/governor.s* > ${TOMCAT_HOME}/webapps/governor.tar.gz
 
 ADD run.sh /opt
 ADD startServer.sh /opt
