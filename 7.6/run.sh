@@ -1,1 +1,3 @@
-nohup sh startServer.sh > main.log &
+nohup sh startServer.sh > /opt/apps_config/main.log &
+while true;do sleep 1d;done
+
