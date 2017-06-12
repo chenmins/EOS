@@ -7,7 +7,7 @@ ENV TOMCAT_HOME=/opt/tomcat \
     APP_HOME=app
 
 ADD ${JDBC_HOME}/*.jar ${TOMCAT_HOME}/lib/
-ADD ${APP_HOME}/* ${TOMCAT_HOME}/webapps/
+COPY ${APP_HOME}/* ${TOMCAT_HOME}/webapps/
 RUN cat ${TOMCAT_HOME}/webapps/default.s* > ${TOMCAT_HOME}/webapps/default.tar.gz
 RUN cat ${TOMCAT_HOME}/webapps/workspace.s* > ${TOMCAT_HOME}/webapps/workspace.tar.gz
 RUN cat ${TOMCAT_HOME}/webapps/governor.s* > ${TOMCAT_HOME}/webapps/governor.tar.gz
