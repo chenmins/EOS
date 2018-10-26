@@ -20,6 +20,7 @@ ADD startServer.sh /opt
 ADD stopServer.sh /opt
 RUN chmod 755 /opt/*.sh
 RUN mkdir /opt/apps_config
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 VOLUME ["/opt/apps_config"]
 
 EXPOSE 8080
